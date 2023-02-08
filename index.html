@@ -4,11 +4,68 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-    <title>New Project</title>
+    <script type="module" src="scripts/controller.js"></script>
+    <title>Calories Planner</title>
   </head>
   <body>
-    <header>a new Project is here</header>
+    <div id="root">
+      <!-- HEADER -->
+      <header><h1 class="header">Calories Planner</h1></header>
+
+      <!-- SEARCH SECTION -->
+      <section class="section section-search container">
+        <form class="form-search">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search over 2,000 foods...
+          "
+          />
+          <button class="btn-search">
+            <ion-icon class="search-icon" name="search-outline"></ion-icon
+            ><span>Search</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- SHOW NUTRITION DATA SECTION -->
+      <section class="section section-nutrition-data container">
+        <ul class="nutrition-list">
+          <h3>100 gr of Chicken</h3>
+          <li class="nutrition-item">200 calories</li>
+          <li class="nutrition-item">30 protein</li>
+          <li class="nutrition-item">50 carbs</li>
+          <li class="nutrition-item">10 fat</li>
+        </ul>
+        <form class="form-show">
+          <input type="text" class="show-input" placeholder="Insert gram" />
+          <button class="update-show btn">Update</button>
+          <button class="btn-show btn">Add to meal</button>
+        </form>
+      </section>
+
+      <!-- ADDED MEALS SECTION -->
+      <section class="section section-meals container">
+        <div class="meals">
+          <ul class="meals-list">
+            <li class="meal">chicken</li>
+            <li class="meal">milk</li>
+          </ul>
+        </div>
+        <button class="btn-meal"></button>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer"><p class="footer-text">FOOTER</p></footer>
   </body>
 </html>
