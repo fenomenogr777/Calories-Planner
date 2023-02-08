@@ -1,7 +1,6 @@
 import * as model from './model.js';
 import searchView from './Views/searchView.js';
 import showView from './Views/showView.js';
-import { View } from './Views/View.js';
 
 const foodContainer = document.querySelector('.food-data');
 const btn = document.querySelector('.btn');
