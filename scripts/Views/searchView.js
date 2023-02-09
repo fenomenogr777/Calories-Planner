@@ -1,8 +1,10 @@
-class SearchView {
+import { View } from './View.js';
+
+class SearchView extends View {
   btnEL = document.querySelector('.btn-search');
   form = document.querySelector('.form-search');
 
-  clicked(handler) {
+  clickedSearch(handler) {
     this.form.addEventListener('click', function (e) {
       e.preventDefault();
       const clicked = e.target.closest('.btn-search');

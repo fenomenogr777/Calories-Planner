@@ -1,8 +1,12 @@
+// Where data are saves when received from Api
 export const state = {
-  data: {},
+  data: [],
+  dataUpdate: [],
+  totalData: [],
 };
 
-export const showFood = async function (query) {
+// Export data from API
+export const showFoodData = async function (query) {
   try {
     const options = {
       method: 'GET',
@@ -16,18 +20,41 @@ export const showFood = async function (query) {
     );
     if (!res.ok) return;
     const data = await res.json();
-    console.log(res);
-    const item = data[0];
 
-    state.data = {
-      name: item.name,
-      calories: +item.calories / +item.serving_size_g,
-      protein: +item.protein_g,
-      carbohydrate: +item.carbohydrates_total_g,
-      fat: +item.fat_total_g,
-    };
+    const item = data[0];
+console.log(state.totalData.length);
+    state.data = [
+      {
+        id: state.totalData.length,
+        name: item.name,
+        calories: +item.calories.toFixed(0),
+        protein: +item.protein_g.toFixed(0),
+        carbohydrate: +item.carbohydrates_total_g.toFixed(0),
+        fat: +item.fat_total_g.toFixed(0),
+        servingSize: +item.serving_size_g,
+      },
+    ];
   } catch (error) {
     throw Error(`PROBLEM`);
   }
 };
 
+export const updateFoodData = function (valueEL) {
+  const data = state.data[0];
+
+  state.dataUpdate = [
+    {
+      id: state.totalData.length,
+      name: data.name,
+      calories: Math.ceil((data.calories / 100) * valueEL),
+      protein: Math.ceil((data.protein / 100) * valueEL),
+      carbohydrate: Math.ceil((data.carbohydrate / 100) * valueEL),
+      fat: Math.ceil((data.fat / 100) * valueEL),
+      servingSize: valueEL,
+    },
+  ];
+};
+
+export const totalFoodData = function (data) {
+  state.totalData.push(data[0]);
+};

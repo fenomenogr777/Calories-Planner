@@ -1,6 +1,8 @@
 :root {
   --backgroundColor: #ccf381;
   --textColor: #4831d4;
+  --lightColor: #dad6f6;
+  --darkColor: #0e0a2a;
 }
 
 * {
@@ -11,12 +13,40 @@
   font-family: sans-serif;
 }
 
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border-radius: 10rem;
+  background: var(--textColor);
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
 li,
 input,
 button {
   list-style: none;
   border: none;
   outline: none;
+}
+
+span {
+  display: inline-block;
 }
 
 body {
@@ -27,23 +57,29 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
   align-items: center;
+  background-image: linear-gradient(to right bottom, #a498ea, #4831d4);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 110rem;
 }
 
 #root {
-  margin: 0 auto;
+  background-color: var(--lightColor);
+  margin: 4rem auto;
+  border-radius: 11px;
+  box-shadow: 0 2rem 6rem 0.5rem rgb(97 85 81 / 20%);
   width: 120rem;
+  min-height: 110rem;
   font-size: 8rem;
-  background-color: var(--backgroundColor);
   color: aliceblue;
-  display: flex;
-  gap: 9.6rem;
-  flex-direction: column;
-
-  align-items: center;
-
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+  grid-template-rows: auto 1fr 1fr;
+  row-gap: 3rem;
+  column-gap: 3rem;
   color: var(--color);
+  padding: 2rem;
 }
 
 .container {
@@ -51,17 +87,48 @@ body {
   width: 120rem;
 }
 
-/* HEADER */
-.header {
-  color: var(--textColor);
-  font-size: 5rem;
-  text-transform: capitalize;
-}
-
 /* SEARCH SECTION */
 .section-search {
+  grid-column: 1/-1;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.logo-img {
+  width: 15rem;
+  height: 4.8rem;
+}
+.nav {
+  display: flex;
+}
+
+.btn-nav {
+  background: transparent;
+  color: var(--darkColor);
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.btn-nav:hover {
+  background: #b6adee;
+}
+
+.btn-nav span {
+  font-size: 1.8rem;
+}
+
+.nav-icon {
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .form-search {
@@ -69,7 +136,6 @@ body {
   align-items: center;
   border-radius: 10rem;
   background: #fff;
-  /* padding: 1rem 2rem; */
 }
 .search-icon {
   height: 2.25rem;
@@ -87,17 +153,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  font-size: 2rem;
-  padding: 1rem 2rem;
-  border-radius: 10rem;
-  background: var(--textColor);
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  transition: all 300ms;
-}
-.btn-search:hover {
-  transform: scale(1.05);
 }
 
 .btn-search span {
@@ -110,30 +165,193 @@ body {
 /* SHOW NUTRITION DATA SECTION */
 .section-nutrition-data {
   padding: 1rem 2rem;
-  background: #fff;
+  background: hsla(0, 0%, 100%, 0.9);
   width: 100%;
   border-radius: 11px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: 3rem;
+  transition: all 300ms;
 }
+
+.section-nutrition-data.hidden {
+  display: none;
+}
+
+.update-show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.update-show span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.btn-add span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
 .form-show {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
+.show-input {
+  border-radius: 11px;
+  padding: 1rem 2rem;
+  text-align: center;
+  border: solid 3px #4831d4;
+}
+
+.show-input::placeholder {
+  color: var(--lightColor);
+}
+
+.nutrition-list {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.nutrition-list h3 {
+  color: #0e0a2a;
+  font-size: 3rem;
+}
+
+.nutrition-list li span {
+  font-size: 2.4rem;
+  color: #0e0a2a;
+}
+
 /* ADDED MEALS SECTION  */
 .section-meals {
-  border: solid 3px var(--textColor);
-  background: #fff;
+  background: hsla(0, 0%, 100%, 0.9);
   width: 100%;
   border-radius: 11px;
+  transition: all 300ms;
+}
+
+.section-meals.hidden {
+  display: none;
+}
+.meals {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 0.8rem 1.6rem;
+}
+
+.meals-list {
+  font-size: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.meal {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meal h3 {
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.meal div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.meal div span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgba(14, 10, 42, 0.8);
+}
+
+.btn-meal {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.meal-check-icon {
+  height: 3.8rem;
+  width: 3.8rem;
+  color: #4831d4;
+}
+.meal-delete-icon {
+  height: 3rem;
+  width: 3rem;
+
+  background-color: transparent;
+  color: red;
+}
+
+.total-btn span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.meals-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meals-total-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.meals-total-list h3 {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.meals-total-list span {
+  font-size: 1.8rem;
+}
+
+/* RECIPES */
+.recipes-section {
+  padding: 1rem 2rem;
+  border-radius: 11px;
+  grid-column: 3/-3;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  transition: all 300ms;
+}
+.recipes-section.hidden {
+  display: none;
 }
 
 /* FOOTER */
 .footer {
+  display: block;
   text-align: center;
   width: 100%;
   font-size: 5rem;
-  background: #4731d473;
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -14,57 +15,118 @@
     ></script>
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="scripts/controller.js"></script>
-    <title>Calories Planner</title>
+    <title>Caloriefy: Calories Calculator</title>
   </head>
   <body>
     <div id="root">
       <!-- HEADER -->
-      <header><h1 class="header">Calories Planner</h1></header>
 
       <!-- SEARCH SECTION -->
-      <section class="section section-search container">
+      <section class="section section-search">
+        <div class="logo">
+          <img class="logo-img" src="images/logo-icon.png" alt="" />
+        </div>
         <form class="form-search">
           <input
+            value="milk
+          "
             type="text"
             class="search-input"
             placeholder="Search over 2,000 foods...
           "
           />
-          <button class="btn-search">
+          <button class="btn-search btn">
             <ion-icon class="search-icon" name="search-outline"></ion-icon
             ><span>Search</span>
           </button>
         </form>
+        <nav class="nav">
+          <button class="btn-nav">
+            <ion-icon class="nav-icon" name="barbell-outline"></ion-icon
+            ><span>Calc Exercise</span>
+          </button>
+          <button class="btn-nav">
+            <ion-icon class="nav-icon" name="accessibility-outline"></ion-icon
+            ><span>Calc calories</span>
+          </button>
+        </nav>
       </section>
 
       <!-- SHOW NUTRITION DATA SECTION -->
       <section class="section section-nutrition-data container">
         <ul class="nutrition-list">
-          <h3>100 gr of Chicken</h3>
-          <li class="nutrition-item">200 calories</li>
-          <li class="nutrition-item">30 protein</li>
-          <li class="nutrition-item">50 carbs</li>
-          <li class="nutrition-item">10 fat</li>
+          <!-- <h3>30g of oats</h3>      
+          <li class="nutrition-item">
+          <span>Calories: 30</span></li>
+          <li class="nutrition-item"> <span>Protein: 30</span></li>
+          <li class="nutrition-item"><span>Carbohydrate: 50</span></li>
+          <li class="nutrition-item"><span>Fat: 10</span></li> -->
         </ul>
         <form class="form-show">
-          <input type="text" class="show-input" placeholder="Insert gram" />
-          <button class="update-show btn">Update</button>
-          <button class="btn-show btn">Add to meal</button>
+          <input
+            type="number"
+            class="show-input"
+            placeholder="Serving size grams(g)"
+          />
+          <button class="update-show btn">
+            <ion-icon class="icon" name="refresh-circle-outline"></ion-icon>
+            <span>servings</span>
+          </button>
+          <button class="btn-add btn">
+            <ion-icon class="icon" name="add-circle-outline"></ion-icon
+            ><span>Meal</span>
+          </button>
         </form>
       </section>
 
       <!-- ADDED MEALS SECTION -->
       <section class="section section-meals container">
         <div class="meals">
-          <ul class="meals-list">
-            <li class="meal">chicken</li>
-            <li class="meal">milk</li>
-          </ul>
-        </div>
-        <button class="btn-meal"></button>
-      </section>
-    </div>
+          <div>
+            <ul class="meals-list">
+              <!-- <li class="meal">
+                <ion-icon class="meal-check-icon" name="checkmark-outline"></ion-icon>
+                <h3>30g Chicken</h3>
+                <div>
+                  <span class="meal">Calories:200</span>
+                  <span class="meal">Protein:30</span>
+                  <span class="meal">Carbs:50</span>
+                  <span class="meal">Fat:10</span>
+                </div>
+                <button class="btn-meal"><ion-icon class="meal-delete-icon" name="close-outline"></ion-icon></button>
+              </li>
+              <li class="meal">
+                <ion-icon class="meal-check-icon" name="checkmark-outline"></ion-icon>
+                <h3>30g Chicken</h3>
+                <div>
+                  <span class="meal">Calories:200</span>
+                  <span class="meal">Protein:30</span>
+                  <span class="meal">Carbs:50</span>
+                  <span class="meal">Fat:10</span>
+                </div>
+                <button class="btn-meal"><ion-icon class="meal-delete-icon" name="close-outline"></ion-icon></button>
+              </li>
+            --></ul>
+          </div>
 
+          <div class="meals-total">
+            <ul class="meals-total-list">
+              <!-- <li class="meal-total"><span>Calories: 1000</span></li>
+              <li class="meal-total"><span>Proteins: 200</span></li>
+              <li class="meal-total"><span>Carbohydrates: 300</span></li>
+              <li class="meal-total"><span>Fats: 50</span></li> -->
+            </ul>
+            <button class="total-btn btn">
+              <ion-icon class="icon" name="add-circle-outline"></ion-icon
+              ><span> recipe</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!--RECIPES  -->
+      <section class="recipes-section"></section>
+    </div>
     <!-- FOOTER -->
     <footer class="footer"><p class="footer-text">FOOTER</p></footer>
   </body>
