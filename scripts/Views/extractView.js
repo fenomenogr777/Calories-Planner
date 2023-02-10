@@ -3,13 +3,25 @@ import { View } from './View.js';
 class ExtractView extends View {
   containerEl = document.querySelector('.meals-list');
   containerElTotal = document.querySelector('.meals-total-list');
+  mealBox = document.querySelector('.meal-box');
+  
+
+  clickAddRecipe(handler) {
+    this.mealBox.addEventListener('click', function (e) {
+      e.preventDefault();
+      const clicked = e.target.closest('.total-btn');
+      if (!clicked) return;
+      const recipeName=document.querySelector(".total-input").value
+      handler(recipeName);
+    });
+  }
 
   clickDelete(handler) {
     this.containerEl.addEventListener('click', function (e) {
       const clicked = e.target.closest('.btn-meal');
       if (!clicked) return;
       const id = clicked.closest('.meal').getAttribute('id');
-      clicked.closest(".meal").remove()
+      clicked.closest('.meal').remove();
       console.log(id);
       handler(+id);
     });
@@ -36,7 +48,6 @@ class ExtractView extends View {
     );
     const totalFats = data.reduce((accum, curr) => accum + curr.fat, 0);
 
-    console.log(totalCalories);
     return `<li class="meal-total"><span>Calories:${totalCalories}</span></li>
   <li class="meal-total"><span>Proteins: ${totalProteins}</span></li>
   <li class="meal-total"><span>Carbohynadres:${totalCarbs}</span></li>

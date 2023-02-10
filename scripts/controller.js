@@ -2,7 +2,7 @@ import * as model from './model.js';
 import searchView from './Views/searchView.js';
 import showView from './Views/showView.js';
 import extractView from './Views/extractView.js';
-import { View } from './Views/View.js';
+import recipesView from './Views/recipesView.js';
 
 const controlCreateData = async function (query) {
   // removes hidden class and make el appear
@@ -40,7 +40,7 @@ const controlExtractFood = function () {
   extractView.render(data[0]);
   // render html on total
   extractView.renderTotal(model.state.totalData);
-
+  console.log(model.state);
   showView.clear();
 };
 
@@ -52,11 +52,27 @@ const controlId = function (id) {
   console.log(model.state.totalData);
 };
 
+const controlAddRecipe = function (recipeName) {
+  // add recipe on state
+  model.createRecipe(recipeName);
+
+  // clean content
+  extractView.clear();
+
+  // render html on total
+  extractView.renderTotal(model.state.totalData);
+
+  // render recipes data
+  recipesView.render(model.state.currRecipe);
+  model.state.currRecipe=[]
+};
+
 const init = function () {
   searchView.clickedSearch(controlCreateData);
   showView.clickedUpdateData(controlUpdateData);
   showView.clickedAddMeal(controlExtractFood);
   extractView.clickDelete(controlId);
+  extractView.clickAddRecipe(controlAddRecipe);
 };
 
 init();

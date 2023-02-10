@@ -43,48 +43,52 @@
         <nav class="nav">
           <button class="btn-nav">
             <ion-icon class="nav-icon" name="barbell-outline"></ion-icon
-            ><span>Calc Exercise</span>
+            ><span>Calculate Exercise</span>
           </button>
           <button class="btn-nav">
             <ion-icon class="nav-icon" name="accessibility-outline"></ion-icon
-            ><span>Calc calories</span>
+            ><span>Calculate calories</span>
           </button>
         </nav>
       </section>
 
       <!-- SHOW NUTRITION DATA SECTION -->
       <section class="section section-nutrition-data container">
-        <ul class="nutrition-list">
-          <!-- <h3>30g of oats</h3>      
-          <li class="nutrition-item">
-          <span>Calories: 30</span></li>
-          <li class="nutrition-item"> <span>Protein: 30</span></li>
-          <li class="nutrition-item"><span>Carbohydrate: 50</span></li>
-          <li class="nutrition-item"><span>Fat: 10</span></li> -->
-        </ul>
-        <form class="form-show">
-          <input
-            type="number"
-            class="show-input"
-            placeholder="Serving size grams(g)"
-          />
-          <button class="update-show btn">
-            <ion-icon class="icon" name="refresh-circle-outline"></ion-icon>
-            <span>servings</span>
-          </button>
-          <button class="btn-add btn">
-            <ion-icon class="icon" name="add-circle-outline"></ion-icon
-            ><span>Meal</span>
-          </button>
-        </form>
+        <h6 class="primary-title">NUTRITION DATA</h6>
+
+        <div class="nutrition-box">
+          <ul class="nutrition-list">
+            <!-- <h3>30g of oats</h3>      
+              <li class="nutrition-item">
+                <span>Calories: 30</span></li>
+                <li class="nutrition-item"> <span>Protein: 30</span></li>
+                <li class="nutrition-item"><span>Carbohydrate: 50</span></li>
+                <li class="nutrition-item"><span>Fat: 10</span></li> -->
+          </ul>
+          <form class="form-show">
+            <input
+              type="number"
+              class="show-input"
+              placeholder="Serving size (g)"
+            />
+            <button class="update-show btn">
+              <ion-icon class="icon" name="refresh-circle-outline"></ion-icon>
+              <span>serving</span>
+            </button>
+            <button class="btn-add btn">
+              <ion-icon class="icon" name="add-circle-outline"></ion-icon
+              ><span>Meal</span>
+            </button>
+          </form>
+        </div>
       </section>
 
       <!-- ADDED MEALS SECTION -->
       <section class="section section-meals container">
-        <div class="meals">
-          <div>
-            <ul class="meals-list">
-              <!-- <li class="meal">
+        <h6 class="primary-title">Foods</h6>
+        <div class="meal-box">
+          <ul class="meals-list">
+            <!-- <li class="meal">
                 <ion-icon class="meal-check-icon" name="checkmark-outline"></ion-icon>
                 <h3>30g Chicken</h3>
                 <div>
@@ -106,8 +110,8 @@
                 </div>
                 <button class="btn-meal"><ion-icon class="meal-delete-icon" name="close-outline"></ion-icon></button>
               </li>
-            --></ul>
-          </div>
+            -->
+          </ul>
 
           <div class="meals-total">
             <ul class="meals-total-list">
@@ -116,6 +120,7 @@
               <li class="meal-total"><span>Carbohydrates: 300</span></li>
               <li class="meal-total"><span>Fats: 50</span></li> -->
             </ul>
+            <input placeholder="recipe name" class="total-input" type="text" />
             <button class="total-btn btn">
               <ion-icon class="icon" name="add-circle-outline"></ion-icon
               ><span> recipe</span>
@@ -125,9 +130,34 @@
       </section>
 
       <!--RECIPES  -->
-      <section class="recipes-section"></section>
+      <section class="recipes-section">
+        <h6 class="primary-title">Recipes</h6>
+        <div class="recipes-box">
+          <div class="recipes">
+            <ul class="recipes-list">
+              <!-- <li>
+                <h5>recipe</h5>
+                <span class="hidden">calories</span>
+                <span class="hidden">ingre</span>
+                <span class="hidden">calories</span>
+                <span class="hidden">calories</span>
+                <span class="hidden">calories</span>
+              </li> -->
+            
+            </ul>
+          </div>
+          <div class="recipes-btn">
+            <div class="">xaxaxax</div>
+            <button>click me</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALORIES BURNT -->
+      <section class="calories-burnt"></section>
     </div>
     <!-- FOOTER -->
     <footer class="footer"><p class="footer-text">FOOTER</p></footer>
   </body>
 </html>
+

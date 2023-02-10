@@ -13,6 +13,40 @@
   font-family: sans-serif;
 }
 
+.spinner {
+  margin-top: 10rem;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #4831d4;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.primary-title {
+  padding: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0;
+  background-image: linear-gradient(to right bottom, #8776e7, #4831d4);
+  width: 100%;
+  text-align: center;
+  color: hsla(0, 0%, 100%, 0.9);
+  letter-spacing: 0.3rem;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  text-transform: uppercase;
+}
+
 .btn {
   display: flex;
   align-items: center;
@@ -61,7 +95,7 @@ body {
   background-image: linear-gradient(to right bottom, #a498ea, #4831d4);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 110rem;
+  color: var(--darkColor);
 }
 
 #root {
@@ -74,7 +108,7 @@ body {
   font-size: 8rem;
   color: aliceblue;
   display: grid;
-  grid-template-columns: 40fr 60fr;
+  grid-template-columns: 40fr 30fr 30fr;
   grid-template-rows: auto 1fr 1fr;
   row-gap: 3rem;
   column-gap: 3rem;
@@ -123,7 +157,7 @@ body {
 }
 
 .btn-nav span {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .nav-icon {
@@ -143,11 +177,16 @@ body {
 }
 
 .search-input {
-  padding: 1rem 2rem;
+  font-weight: 600;
+
+  color: var(--darkColor);
+  padding: 0.9rem 2rem;
   border-bottom-left-radius: 10rem;
   border-top-left-radius: 10rem;
 }
-
+.search-input::placeholder {
+  color: var(--lightColor);
+}
 .btn-search {
   display: flex;
   align-items: center;
@@ -164,18 +203,22 @@ body {
 
 /* SHOW NUTRITION DATA SECTION */
 .section-nutrition-data {
-  padding: 1rem 2rem;
   background: hsla(0, 0%, 100%, 0.9);
   width: 100%;
   border-radius: 11px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   gap: 3rem;
   transition: all 300ms;
 }
-
+.nutrition-box {
+  padding: 1rem 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .section-nutrition-data.hidden {
   display: none;
 }
@@ -221,7 +264,7 @@ body {
   display: flex;
   gap: 1rem;
   flex-direction: column;
-
+  align-items: center;
   justify-content: center;
 }
 
@@ -229,9 +272,19 @@ body {
   color: #0e0a2a;
   font-size: 3rem;
 }
+.nutrition-list h3 span {
+  font-size: 3rem;
+  color: #4831d4;
+  text-transform: capitalize;
+}
+.nutrition-list .nutrition-value {
+  color: #4831d4;
+  font-weight: 600;
+}
 
 .nutrition-list li span {
   font-size: 2.4rem;
+  font-weight: 500;
   color: #0e0a2a;
 }
 
@@ -241,6 +294,9 @@ body {
   width: 100%;
   border-radius: 11px;
   transition: all 300ms;
+  grid-column: 2/4;
+  display: flex;
+  flex-direction: column;
 }
 
 .section-meals.hidden {
@@ -248,10 +304,14 @@ body {
 }
 .meals {
   height: 100%;
+  flex-direction: column;
+}
+.meal-box {
   display: flex;
+  height: 100%;
   justify-content: space-between;
   flex-direction: column;
-  padding: 0.8rem 1.6rem;
+  padding: 1rem 2rem;
 }
 
 .meals-list {
@@ -336,18 +396,61 @@ body {
 
 /* RECIPES */
 .recipes-section {
-  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
   border-radius: 11px;
-  grid-column: 3/-3;
-  background: #fff;
-  height: 100%;
+  grid-column: 1/3;
+  background: hsla(0, 0%, 100%, 0.9);
   width: 100%;
   transition: all 300ms;
+  height: 100%;
 }
 .recipes-section.hidden {
   display: none;
 }
 
+.recipes-box{
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.recipes-list li{
+  font-size: 2rem;
+}
+
+.recipes-list li span{
+  font-size: 2rem;
+}
+
+.recipe-box{
+display: flex;
+gap: 0.8rem;
+}
+.recipe-box h5{
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+.recipe-box span{
+
+}
+
+
+
+/* CALORIES BURNT */
+.calories-burnt {
+  padding: 1rem 2rem;
+  background: hsla(0, 0%, 100%, 0.9);
+  width: 100%;
+  border-radius: 11px;
+  transition: all 300ms;
+}
+.calories-burnt.hidden {
+  display: none;
+}
 /* FOOTER */
 .footer {
   display: block;

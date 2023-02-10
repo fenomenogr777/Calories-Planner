@@ -36,12 +36,11 @@ class ShowView extends View {
   }
 
   generateHtml(data) {
-    return `<h3>${data.servingSize} gr of ${data.name}</h3>
-    <li class="nutrition-item">
-    ${data.calories} Calories</li>
-    <li class="nutrition-item"> ${data.protein} Protein</li>
-    <li class="nutrition-item"> ${data.carbohydrate} Carbs</li>
-    <li class="nutrition-item"> ${data.fat} Fat</li>`;
+    return `  <h3>Serving <span>${data.servingSize}gr</span> of <span class="nutrition-value">${data.name}</span></h3>
+    <li class="nutrition-item"><span>Calories</span> <span class="nutrition-value">${data.calories}</span></li>
+    <li class="nutrition-item"> <span>Protein</span> <span class="nutrition-value">${data.protein}</span> </li>
+    <li class="nutrition-item"><span>Carbohydrate</span> <span class="nutrition-value">${data.carbohydrate}</span></li>
+    <li class="nutrition-item"><span>Fat</span> <span class="nutrition-value">${data.fat}</span></li>`;
   }
 }
 

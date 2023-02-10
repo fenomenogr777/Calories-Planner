@@ -2,8 +2,8 @@ export class View {
 
   spinner() {
     this.clear();
-    const markUp = `<ion-icon name="hourglass-outline"></ion-icon>`;
-    this.containerEl.insertAdjacentHTML('afterbegin', markUp);
+    const markUp = `<div class="spinner"></div>`;
+ this.containerEl.insertAdjacentHTML('afterbegin', markUp);
   }
 
   clear() {
@@ -11,7 +11,6 @@ export class View {
   }
 
   render(data) {
-
     const markUp = this.generateHtml(data);
     this.containerEl.insertAdjacentHTML('afterbegin', markUp);
   }

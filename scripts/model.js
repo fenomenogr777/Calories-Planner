@@ -3,6 +3,8 @@ export const state = {
   data: [],
   dataUpdate: [],
   totalData: [],
+  currRecipe: [],
+  recipes: [],
 };
 
 // Export data from API
@@ -20,9 +22,7 @@ export const showFoodData = async function (query) {
     );
     if (!res.ok) return;
     const data = await res.json();
-
     const item = data[0];
-console.log(state.totalData.length);
     state.data = [
       {
         id: state.totalData.length,
@@ -39,6 +39,7 @@ console.log(state.totalData.length);
   }
 };
 
+// Update good nutrition data on g
 export const updateFoodData = function (valueEL) {
   const data = state.data[0];
 
@@ -57,4 +58,26 @@ export const updateFoodData = function (valueEL) {
 
 export const totalFoodData = function (data) {
   state.totalData.push(data[0]);
+};
+
+export const createRecipe = function (recipeName) {
+  const data = {
+    name: recipeName,
+    id: `recipe-${state.recipes.length}`,
+    ingredients: state.totalData.map(
+      item => `${item.name} ${item.servingSize}g`
+    ),
+    calories: state.totalData.reduce((accum, curr) => accum + curr.calories, 0),
+    proteins: state.totalData.reduce((accum, curr) => accum + curr.protein, 0),
+    carbohydrates: state.totalData.reduce(
+      (accum, curr) => accum + curr.carbohydrate,
+      0
+    ),
+    fats: state.totalData.reduce((accum, curr) => accum + curr.fat, 0),
+  };
+  state.recipes.push(data);
+  state.currRecipe.push(data);
+  state.totalData = [];
+  state.data = [];
+  state.dataUpdate = [];
 };
