@@ -25,7 +25,7 @@ export const showFoodData = async function (query) {
     const item = data[0];
     state.data = [
       {
-        id: state.totalData.length,
+        id: Date.now(),
         name: item.name,
         calories: +item.calories.toFixed(0),
         protein: +item.protein_g.toFixed(0),
@@ -45,7 +45,7 @@ export const updateFoodData = function (valueEL) {
 
   state.dataUpdate = [
     {
-      id: state.totalData.length,
+      id: Date.now(),
       name: data.name,
       calories: Math.ceil((data.calories / 100) * valueEL),
       protein: Math.ceil((data.protein / 100) * valueEL),
@@ -63,7 +63,7 @@ export const totalFoodData = function (data) {
 export const createRecipe = function (recipeName) {
   const data = {
     name: recipeName,
-    id: `recipe-${state.recipes.length}`,
+    id: `recipe-${Date.now()}`,
     ingredients: state.totalData.map(
       item => `${item.name} ${item.servingSize}g`
     ),

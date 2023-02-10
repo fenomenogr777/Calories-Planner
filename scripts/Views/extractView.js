@@ -12,6 +12,7 @@ class ExtractView extends View {
       const clicked = e.target.closest('.total-btn');
       if (!clicked) return;
       const recipeName=document.querySelector(".total-input").value
+      document.querySelector(".total-input").value=""
       handler(recipeName);
     });
   }
@@ -37,6 +38,8 @@ class ExtractView extends View {
     this.containerElTotal.insertAdjacentHTML('afterbegin', markUp);
   }
   generateHtmlTotal(data) {
+    console.log(data);
+
     const totalCalories = data.reduce(
       (accum, curr) => accum + curr.calories,
       0
@@ -49,12 +52,14 @@ class ExtractView extends View {
     const totalFats = data.reduce((accum, curr) => accum + curr.fat, 0);
 
     return `<li class="meal-total"><span>Calories:${totalCalories}</span></li>
-  <li class="meal-total"><span>Proteins: ${totalProteins}</span></li>
-  <li class="meal-total"><span>Carbohynadres:${totalCarbs}</span></li>
-  <li class="meal-total"><span>Fats: ${totalFats}</span></li>`;
+  <li class="meal-total"><span>Protein: ${totalProteins}</span></li>
+  <li class="meal-total"><span>Carb:${totalCarbs}</span></li>
+  <li class="meal-total"><span>Fat: ${totalFats}</span></li>`;
   }
 
   generateHtml(data) {
+    console.log(data);
+
     return `
         <li class="meal" id="${data.id}">
         <ion-icon class="meal-check-icon" name="checkmark-outline"></ion-icon>

@@ -41,11 +41,11 @@
           </button>
         </form>
         <nav class="nav">
-          <button class="btn-nav">
+          <button class="btn-nav btn-exercise">
             <ion-icon class="nav-icon" name="barbell-outline"></ion-icon
             ><span>Calculate Exercise</span>
           </button>
-          <button class="btn-nav">
+          <button class="btn-nav btn-calories">
             <ion-icon class="nav-icon" name="accessibility-outline"></ion-icon
             ><span>Calculate calories</span>
           </button>
@@ -120,11 +120,20 @@
               <li class="meal-total"><span>Carbohydrates: 300</span></li>
               <li class="meal-total"><span>Fats: 50</span></li> -->
             </ul>
-            <input placeholder="recipe name" class="total-input" type="text" />
-            <button class="total-btn btn">
-              <ion-icon class="icon" name="add-circle-outline"></ion-icon
-              ><span> recipe</span>
-            </button>
+            <form class="total-form">
+              <label for="input-total"></label>
+              <input
+                placeholder="recipe name"
+                class="total-input"
+                type="text"
+                minlength="4"
+                required
+              />
+              <button type="submit" class="total-btn btn">
+                <ion-icon class="icon" name="add-circle-outline"></ion-icon
+                ><span> recipe</span>
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -143,21 +152,27 @@
                 <span class="hidden">calories</span>
                 <span class="hidden">calories</span>
               </li> -->
-            
             </ul>
           </div>
           <div class="recipes-btn">
-            <div class="">xaxaxax</div>
-            <button>click me</button>
+            <button class="recipes-deleteAll">
+              <ion-icon class="meal-delete-icon" name="close-outline"></ion-icon
+              >Delete All
+            </button>
           </div>
         </div>
       </section>
 
       <!-- CALORIES BURNT -->
-      <section class="calories-burnt"></section>
+      <section class="calories-burnt">
+        <h6 class="primary-title">Calories</h6>
+        <div class="calories-burnt-box-all"></div>
+      </section>
     </div>
     <!-- FOOTER -->
     <footer class="footer"><p class="footer-text">FOOTER</p></footer>
+
+    <div class="calculate-calories hidden">sssssssssss</div>
   </body>
 </html>
 

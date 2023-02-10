@@ -28,28 +28,34 @@ const controlExtractFood = function () {
   extractView.removeHidden();
 
   // data is default or update based on array.length
-  const data =
+
+ let data;
+ data =
     model.state.data.length > model.state.dataUpdate.length
       ? model.state.data
       : model.state.dataUpdate;
 
+      
+      model.state.data=[]
+      model.state.dataUpdate=[]
   // Push data to total array
   model.totalFoodData(data);
+  console.log(model.state.data);
 
   // render html on every food
   extractView.render(data[0]);
   // render html on total
   extractView.renderTotal(model.state.totalData);
-  console.log(model.state);
   showView.clear();
+
 };
 
 const controlId = function (id) {
   // delete array based on id
-  model.state.totalData.splice(id, 1);
+  model.state.totalData = model.state.totalData.filter(item => item.id !== id);
+
   // update total
   extractView.renderTotal(model.state.totalData);
-  console.log(model.state.totalData);
 };
 
 const controlAddRecipe = function (recipeName) {
@@ -64,7 +70,19 @@ const controlAddRecipe = function (recipeName) {
 
   // render recipes data
   recipesView.render(model.state.currRecipe);
-  model.state.currRecipe=[]
+  model.state.currRecipe = [];
+};
+
+const controlRecipeId = function (recipeId) {
+  // model.state.recipes.splice(recipeId, 1);
+
+  model.state.recipes = model.state.recipes.filter(
+    item => item.id !== recipeId
+  );
+};
+
+const controlDeleteAll = function () {
+  model.state.recipes = [];
 };
 
 const init = function () {
@@ -73,6 +91,12 @@ const init = function () {
   showView.clickedAddMeal(controlExtractFood);
   extractView.clickDelete(controlId);
   extractView.clickAddRecipe(controlAddRecipe);
+  recipesView.clickDelete(controlRecipeId);
+  recipesView.clickDeleteAll(controlDeleteAll);
 };
 
 init();
+
+document.querySelector('.btn-calories').addEventListener('click', function (e) {
+  document.querySelector('.calculate-calories').classList.remove('hidden');
+});

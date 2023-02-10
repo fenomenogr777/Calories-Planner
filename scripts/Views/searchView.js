@@ -5,10 +5,13 @@ class SearchView extends View {
   form = document.querySelector('.form-search');
 
   clickedSearch(handler) {
+    console.log(
+    View.prototype)
     this.form.addEventListener('click', function (e) {
       e.preventDefault();
       const clicked = e.target.closest('.btn-search');
       if (!clicked) return;
+      document.querySelector('.show-input').focus()
       const inputEL = document.querySelector('.search-input');
       const query = inputEL.value;
       if (!query) return;

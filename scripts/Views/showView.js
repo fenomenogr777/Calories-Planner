@@ -6,8 +6,10 @@ class ShowView extends View {
   showBtn = document.querySelector('.btn-add');
   data;
 
-  removeHidden(){
-    document.querySelector(".section-nutrition-data").classList.remove("hidden")
+  removeHidden() {
+    document
+      .querySelector('.section-nutrition-data')
+      .classList.remove('hidden');
   }
 
   clickedAddMeal(handler) {

@@ -1,9 +1,10 @@
 export class View {
+ 
 
   spinner() {
     this.clear();
     const markUp = `<div class="spinner"></div>`;
- this.containerEl.insertAdjacentHTML('afterbegin', markUp);
+    this.containerEl.insertAdjacentHTML('afterbegin', markUp);
   }
 
   clear() {
@@ -11,9 +12,10 @@ export class View {
   }
 
   render(data) {
+
     const markUp = this.generateHtml(data);
+    console.log(markUp);
+    if(!markUp) return console.log(`to piasa`);
     this.containerEl.insertAdjacentHTML('afterbegin', markUp);
   }
-
-
 }
