@@ -5,6 +5,7 @@ class RecipesView extends View {
 
   generateHtml(recipeData) {
     const data = recipeData[0];
+    if(!data) return
     console.log(data);
     return `
     <li>
