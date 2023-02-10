@@ -29,15 +29,14 @@ const controlExtractFood = function () {
 
   // data is default or update based on array.length
 
- let data;
- data =
+  let data;
+  data =
     model.state.data.length > model.state.dataUpdate.length
       ? model.state.data
       : model.state.dataUpdate;
 
-      
-      model.state.data=[]
-      model.state.dataUpdate=[]
+  model.state.data = [];
+  model.state.dataUpdate = [];
   // Push data to total array
   model.totalFoodData(data);
   console.log(model.state.data);
@@ -47,7 +46,6 @@ const controlExtractFood = function () {
   // render html on total
   extractView.renderTotal(model.state.totalData);
   showView.clear();
-
 };
 
 const controlId = function (id) {
@@ -100,3 +98,13 @@ init();
 document.querySelector('.btn-calories').addEventListener('click', function (e) {
   document.querySelector('.calculate-calories').classList.remove('hidden');
 });
+
+const currAge = 29;
+const adult = true;
+
+const test = {
+  name: 'nikos',
+  [adult && 'age']: currAge,
+};
+
+console.log(test);
